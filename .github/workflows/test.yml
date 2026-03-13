@@ -35,7 +35,7 @@ jobs:
       - name: Run Go Test File
         run: |
           echo "Running Go Test Cases..."
-          go run handler_test.go
+          go test ./... -v
 
       #########################################
       # GENERATE REPORT
