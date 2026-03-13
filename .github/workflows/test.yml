@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout Repository
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -35,7 +35,13 @@ jobs:
       - name: Run Go Test File
         run: |
           echo "Running Go Test Cases..."
-          go test ./... -v
+
+          if [ ! -f go.mod ]; then
+            go mod init sprint-tests
+          fi
+
+          go mod tidy
+          go test -v
 
       #########################################
       # GENERATE REPORT
