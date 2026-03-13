@@ -28,21 +28,24 @@ jobs:
         with:
           go-version: 1.21
 
-      #########################################
+     #########################################
       # RUN GO TEST FILE
       #########################################
-
+      
       - name: Run Go Test File
         run: |
           echo "Running Go Test Cases..."
-
+      
+          # Initialize module if not exists
           if [ ! -f go.mod ]; then
             go mod init sprint-tests
           fi
-
+      
+          # Download dependencies
           go mod tidy
+      
+          # Run tests
           go test -v
-
       #########################################
       # GENERATE REPORT
       #########################################
