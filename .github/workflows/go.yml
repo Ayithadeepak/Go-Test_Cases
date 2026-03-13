@@ -3,7 +3,7 @@ name: Sprint Master Test Cases
 on:
   pull_request:
     branches:
-      - V_Sprint_Master
+      - Go_Sprint_Master
   workflow_dispatch:
 
 permissions:
